@@ -13,6 +13,7 @@ class User {
 
     public User(String username) {
         this.username = username;
+        this.relations = new LinkedList();
     }
 
     public String getUsername() {

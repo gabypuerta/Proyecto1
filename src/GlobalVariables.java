@@ -9,23 +9,32 @@
  */
 public class GlobalVariables {
     
-    String txtPath = "test\\test.txt";
-    
-    
-    
-    
-    
-    
-    
-    public String getTxtPath() {
+    private static String txtPath = "";
+    private static String testPath = "/Users/victoriagarcia/Documents/GitHub/Proyecto1/src/test/test.txt";
+    private static LinkedList userGraph = new LinkedList();
+
+    public static String getTxtPath() {
         return txtPath;
     }
 
-    public void setTxtPath(String txtPath) {
-        this.txtPath = txtPath;
+    public static void setTxtPath(String txtPath) {
+        GlobalVariables.txtPath = txtPath;
     }
 
-    
-    
-    
+    public static LinkedList getUserGraph() {
+        return userGraph;
+    }
+
+    public static void setUserGraph(LinkedList userGraph) {
+        GlobalVariables.userGraph = userGraph;
+    }
+
+    public static String getTestPath() {
+        return testPath;
+    }
+
+    public static void setTestPath(String testPath) {
+        GlobalVariables.testPath = testPath;
+    }
+
 }

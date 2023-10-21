@@ -18,8 +18,8 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        startWindow fw = new startWindow();
-        fw.setVisible(true);
+        TextFunctions.createGraph(GlobalVariables.getTestPath());
+        
     }
     
 }
