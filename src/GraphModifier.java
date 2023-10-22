@@ -9,5 +9,5 @@
  * @author gaby3
  */
 public class GraphModifier {
-    
+    private static LinkedList userGraph = GlobalVariables.getUserGraph();
 }
