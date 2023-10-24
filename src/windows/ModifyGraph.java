@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package windows;
-import defaultpackage.GlobalVariables;
+import Functions.GlobalVariables;
 //Hacer import de Graph Modifier
 
 /**
@@ -17,7 +17,7 @@ public class ModifyGraph extends javax.swing.JFrame {
      */
     public ModifyGraph() {
         initComponents();
-        this.userGraph = GlobalVariables.getUserGraph();
+        // this.userGraph = GlobalVariables.getUserGraph();
     }
 
     /**

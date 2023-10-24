@@ -23,6 +23,7 @@ public class main {
         
         startWindow fw = new startWindow();
         fw.setVisible(true);
+        fw.setLocationRelativeTo(null);
         
     }
     
