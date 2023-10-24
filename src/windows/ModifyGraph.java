@@ -30,6 +30,7 @@ public class ModifyGraph extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         UserNameComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         DeleteUserBtn = new javax.swing.JButton();
@@ -41,8 +42,11 @@ public class ModifyGraph extends javax.swing.JFrame {
         AddRelationBtn = new javax.swing.JButton();
         RelationTypeToggleBtn = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UserNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         UserNameComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -50,8 +54,11 @@ public class ModifyGraph extends javax.swing.JFrame {
                 UserNameComboBoxActionPerformed(evt);
             }
         });
+        jPanel1.add(UserNameComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, -1));
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel1.setText("Usuarios Existentes");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         DeleteUserBtn.setText("Eliminar Usuario");
         DeleteUserBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -59,8 +66,11 @@ public class ModifyGraph extends javax.swing.JFrame {
                 DeleteUserBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(DeleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel2.setText("Nombre de usuario a agregar");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         NewUsernameTextField.setText("Nombre");
         NewUsernameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -68,10 +78,14 @@ public class ModifyGraph extends javax.swing.JFrame {
                 NewUsernameTextFieldActionPerformed(evt);
             }
         });
+        jPanel1.add(NewUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, -1));
 
         UsernameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(UsernameComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 141, -1));
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel3.setText("Relacion con otro usuario");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
 
         AddUserBtn.setText("Agregar Usuario");
         AddUserBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -79,8 +93,10 @@ public class ModifyGraph extends javax.swing.JFrame {
                 AddUserBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(AddUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 21));
 
         AddRelationBtn.setText("Agregar Relacion");
+        jPanel1.add(AddRelationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
 
         RelationTypeToggleBtn.setText("Relacion de entrada");
         RelationTypeToggleBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +104,7 @@ public class ModifyGraph extends javax.swing.JFrame {
                 RelationTypeToggleBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(RelationTypeToggleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
 
         jButton1.setText("Atras");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -95,67 +112,20 @@ public class ModifyGraph extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sodapdf-converted.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(36, 36, 36)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(NewUsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(UserNameComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGap(24, 24, 24)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(DeleteUserBtn)
-                                .addComponent(UsernameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(AddUserBtn, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(RelationTypeToggleBtn)
-                                    .addComponent(AddRelationBtn)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
-                .addContainerGap(42, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UserNameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeleteUserBtn))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UsernameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NewUsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RelationTypeToggleBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(AddRelationBtn)
-                    .addComponent(AddUserBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(jButton1)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -237,5 +207,7 @@ public class ModifyGraph extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

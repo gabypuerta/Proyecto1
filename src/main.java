@@ -1,5 +1,9 @@
-
 import windows.startWindow;
+import windows.FileChooser;
+import windows.MainMenu;
+import windows.ModifyGraph;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,6 +27,10 @@ public class main {
         startWindow fw = new startWindow();
         fw.setVisible(true);
         fw.setLocationRelativeTo(null);
+        
+        
+        
+        
         
     }
     
