@@ -19,7 +19,7 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        // TextFunctions.createGraph(GlobalVariables.getTestPath());
+        //TextFunctions.createGraph(GlobalVariables.getTestPath());
         
         startWindow fw = new startWindow();
         fw.setVisible(true);
