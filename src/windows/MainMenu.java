@@ -87,7 +87,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ShowTxtFile tf = new ShowTxtFile();
-        this.dispose();
+//        this.dispose();
         this.setVisible(false);
         tf.setVisible(true);     
         tf.setLocationRelativeTo(null);

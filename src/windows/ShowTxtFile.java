@@ -16,7 +16,7 @@ public class ShowTxtFile extends javax.swing.JFrame {
      */
     public ShowTxtFile() {
         initComponents();
-        jTXTTextArea1.setText(TextFunctions.createTxtFile());
+//        jTXTTextArea1.setText(TextFunctions.createTxtFile());
     }
 
     /**
