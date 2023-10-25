@@ -60,6 +60,7 @@ public class TextFunctions {
     
     public static String createTxtFile(){
         LinkedList userList = GlobalVariables.getUserGraph();
+        System.out.println("Entramos a la funcion creat txt file");
         String users = "usuarios";
         String relations = "relaciones";
         
@@ -74,10 +75,13 @@ public class TextFunctions {
             while(pointer2 != null){
                 User temp2 = (User) pointer2.getData();
                 relations = relations + "\n" + temp.getUsername() + ", " + temp2.getUsername();
+                pointer2 = pointer2.getNext();
+              
             }
+            pointer = pointer.getNext();
         }
         String output = users + "\n" + relations;
-        
+        System.out.println(output);
         return output;
     }
 

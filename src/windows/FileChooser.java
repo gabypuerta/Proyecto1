@@ -87,6 +87,8 @@ public class FileChooser extends javax.swing.JFrame {
         String filename = f.getAbsolutePath();
         jTextField1.setText(filename);
         TextFunctions.createGraph(filename);
+        System.out.println("Archivo cargado con exito");
+                
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
