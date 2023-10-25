@@ -13,7 +13,7 @@ package Functions;
 public class GlobalVariables {
     
     private static String txtPath = "";
-    private static String testPath = "/Users/victoriagarcia/Documents/GitHub/Proyecto1/src/test/test.txt";
+    private static String testPath = "";
     private static LinkedList userGraph = new LinkedList();
 
     public static String getTxtPath() {
