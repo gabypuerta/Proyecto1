@@ -4,6 +4,7 @@
  */
 package windows;
 
+import Functions.TextFunctions;
 import java.io.File;
 import javax.swing.JFileChooser;
 
@@ -84,6 +85,7 @@ public class FileChooser extends javax.swing.JFrame {
         File f = chooser.getSelectedFile();
         String filename = f.getAbsolutePath();
         jTextField1.setText(filename);
+        TextFunctions.createGraph(filename);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

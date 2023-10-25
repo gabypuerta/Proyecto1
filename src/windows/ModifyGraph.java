@@ -56,7 +56,7 @@ public class ModifyGraph extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        UserNameComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        UserNameComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@pepe", "@mazinger", "@juanc", "@xoxojaime", "@tuqui33", "@sancho23", "@terciopelo", "@caribedoble", "@africa", "@totalfree", "@radiogaga", "@cipriano", "@newageforever" }));
         UserNameComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserNameComboBox2ActionPerformed(evt);
@@ -88,7 +88,7 @@ public class ModifyGraph extends javax.swing.JFrame {
         });
         jPanel1.add(NewUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, -1));
 
-        UsernameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        UsernameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@pepe", "@mazinger", "@juanc", "@xoxojaime", "@tuqui33", "@sancho23", "@terciopelo", "@caribedoble", "@africa", "@totalfree", "@radiogaga", "@cipriano", "@newageforever" }));
         UsernameComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsernameComboBoxActionPerformed(evt);

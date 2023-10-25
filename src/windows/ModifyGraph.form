@@ -46,11 +46,20 @@
         <Component class="javax.swing.JComboBox" name="UserNameComboBox2">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="13">
+                <StringItem index="0" value="@pepe"/>
+                <StringItem index="1" value="@mazinger"/>
+                <StringItem index="2" value="@juanc"/>
+                <StringItem index="3" value="@xoxojaime"/>
+                <StringItem index="4" value="@tuqui33"/>
+                <StringItem index="5" value="@sancho23"/>
+                <StringItem index="6" value="@terciopelo"/>
+                <StringItem index="7" value="@caribedoble"/>
+                <StringItem index="8" value="@africa"/>
+                <StringItem index="9" value="@totalfree"/>
+                <StringItem index="10" value="@radiogaga"/>
+                <StringItem index="11" value="@cipriano"/>
+                <StringItem index="12" value="@newageforever"/>
               </StringArray>
             </Property>
           </Properties>
@@ -121,11 +130,20 @@
         <Component class="javax.swing.JComboBox" name="UsernameComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="13">
+                <StringItem index="0" value="@pepe"/>
+                <StringItem index="1" value="@mazinger"/>
+                <StringItem index="2" value="@juanc"/>
+                <StringItem index="3" value="@xoxojaime"/>
+                <StringItem index="4" value="@tuqui33"/>
+                <StringItem index="5" value="@sancho23"/>
+                <StringItem index="6" value="@terciopelo"/>
+                <StringItem index="7" value="@caribedoble"/>
+                <StringItem index="8" value="@africa"/>
+                <StringItem index="9" value="@totalfree"/>
+                <StringItem index="10" value="@radiogaga"/>
+                <StringItem index="11" value="@cipriano"/>
+                <StringItem index="12" value="@newageforever"/>
               </StringArray>
             </Property>
           </Properties>
