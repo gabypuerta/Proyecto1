@@ -10,7 +10,7 @@ package Functions;
  *
  * @author victoriagarcia
  */
-class User {
+public class User {
     String username;
     LinkedList relations;
 

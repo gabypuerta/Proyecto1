@@ -57,6 +57,29 @@ public class TextFunctions {
             System.out.println("No se pudo abrir el archivo");
         }
     }
+    
+    public static String createTxtFile(){
+        LinkedList userList = GlobalVariables.getUserGraph();
+        String users = "usuarios";
+        String relations = "relaciones";
+        
+        Node pointer = userList.getHead();
+        while (pointer != null){
+            User temp = (User) pointer.getData();
+            //Agregamos el nombre de user
+            users = users + "\n" + temp.getUsername();
+            
+            //Agregamos Relaciones
+            Node pointer2 = temp.getRelations().getHead();
+            while(pointer2 != null){
+                User temp2 = (User) pointer2.getData();
+                relations = relations + "\n" + temp.getUsername() + ", " + temp2.getUsername();
+            }
+        }
+        String output = users + "\n" + relations;
+        
+        return output;
+    }
 
     private static void searchAndRelate(String usuario1name, String usuario2name, LinkedList users) {
         // Buscamos los nodos que contienen a los usuarios

@@ -4,6 +4,9 @@
  */
 package windows;
 import Functions.GlobalVariables;
+import Functions.LinkedList;
+import Functions.Node;
+import Functions.User;
 //Hacer import de Graph Modifier
 
 /**
@@ -15,9 +18,14 @@ public class ModifyGraph extends javax.swing.JFrame {
     /**
      * Creates new form ModifyGraph
      */
+    LinkedList userGraph = GlobalVariables.getUserGraph();
+    LinkedList newUserOutRelations = new LinkedList();
+    LinkedList newUserInRelations = new LinkedList();
+    
     public ModifyGraph() {
         initComponents();
-        // this.userGraph = GlobalVariables.getUserGraph();
+        
+        
     }
 
     /**
@@ -31,7 +39,7 @@ public class ModifyGraph extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        UserNameComboBox = new javax.swing.JComboBox<>();
+        UserNameComboBox2 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         DeleteUserBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -48,13 +56,13 @@ public class ModifyGraph extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        UserNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        UserNameComboBox.addActionListener(new java.awt.event.ActionListener() {
+        UserNameComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        UserNameComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserNameComboBoxActionPerformed(evt);
+                UserNameComboBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(UserNameComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, -1));
+        jPanel1.add(UserNameComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 110, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel1.setText("Usuarios Existentes");
@@ -81,6 +89,11 @@ public class ModifyGraph extends javax.swing.JFrame {
         jPanel1.add(NewUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, -1));
 
         UsernameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        UsernameComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsernameComboBoxActionPerformed(evt);
+            }
+        });
         jPanel1.add(UsernameComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 141, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -96,6 +109,11 @@ public class ModifyGraph extends javax.swing.JFrame {
         jPanel1.add(AddUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 21));
 
         AddRelationBtn.setText("Agregar Relacion");
+        AddRelationBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddRelationBtnActionPerformed(evt);
+            }
+        });
         jPanel1.add(AddRelationBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
 
         RelationTypeToggleBtn.setText("Relacion de entrada");
@@ -133,6 +151,11 @@ public class ModifyGraph extends javax.swing.JFrame {
 
     private void DeleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteUserBtnActionPerformed
         // TODO add your handling code here:
+        String selection = (String)UsernameComboBox.getSelectedItem();
+        Node user_to_delete = userGraph.getUser(selection);
+        userGraph.delete(user_to_delete.getData());
+        
+        //Se puede poner borrado con exito en un popup message
     }//GEN-LAST:event_DeleteUserBtnActionPerformed
 
     private void NewUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewUsernameTextFieldActionPerformed
@@ -141,15 +164,29 @@ public class ModifyGraph extends javax.swing.JFrame {
 
     private void AddUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUserBtnActionPerformed
         // TODO add your handling code here:
+        User newUser = new User(NewUsernameTextField.getText());
+        Node pointer = newUserOutRelations.getHead();
+        while(pointer != null){
+            newUser.getRelations().append(pointer.getData());
+            pointer = pointer.getNext();
+        }
+        pointer = newUserInRelations.getHead();
+        while(pointer != null){
+            User userIn = (User) pointer.getData();
+            userIn.getRelations().append(newUser);
+        }
+        userGraph.append(newUser);
+        
+        //Mensaje de Usuario agregado con exito al grafo
     }//GEN-LAST:event_AddUserBtnActionPerformed
 
     private void RelationTypeToggleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RelationTypeToggleBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RelationTypeToggleBtnActionPerformed
 
-    private void UserNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameComboBoxActionPerformed
+    private void UserNameComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameComboBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserNameComboBoxActionPerformed
+    }//GEN-LAST:event_UserNameComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MainMenu mm = new MainMenu();
@@ -158,6 +195,26 @@ public class ModifyGraph extends javax.swing.JFrame {
         mm.setVisible(true);     
         mm.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void UsernameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsernameComboBoxActionPerformed
+
+    private void AddRelationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddRelationBtnActionPerformed
+        // TODO add your handling code here:
+        if (!RelationTypeToggleBtn.isSelected()){
+            String selection = (String) UserNameComboBox2.getSelectedItem();
+            Node user_to_relate = userGraph.getUser(selection);
+            newUserOutRelations.append(user_to_relate.getData());
+        }else{
+          String selection = (String) UserNameComboBox2.getSelectedItem();
+            Node user_to_relate = userGraph.getUser(selection);
+            newUserInRelations.append(user_to_relate.getData());  
+        }
+        
+        
+        //Mensaje de Relacion agregada con exito!
+    }//GEN-LAST:event_AddRelationBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,8 +247,11 @@ public class ModifyGraph extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ModifyGraph().setVisible(true);
+            
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -200,7 +260,7 @@ public class ModifyGraph extends javax.swing.JFrame {
     private javax.swing.JButton DeleteUserBtn;
     private javax.swing.JTextField NewUsernameTextField;
     private javax.swing.JToggleButton RelationTypeToggleBtn;
-    private javax.swing.JComboBox<String> UserNameComboBox;
+    private javax.swing.JComboBox<String> UserNameComboBox2;
     private javax.swing.JComboBox<String> UsernameComboBox;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
