@@ -49,6 +49,11 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
         jButton3.setText("Mostar Txt");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -79,6 +84,14 @@ public class MainMenu extends javax.swing.JFrame {
         mg.setVisible(true);     
         mg.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        ShowTxtFile tf = new ShowTxtFile();
+        this.dispose();
+        this.setVisible(false);
+        tf.setVisible(true);     
+        tf.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
