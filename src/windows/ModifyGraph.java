@@ -6,6 +6,7 @@ package windows;
 import Functions.GlobalVariables;
 import Functions.LinkedList;
 import Functions.Node;
+import Functions.TextFunctions;
 import Functions.User;
 //Hacer import de Graph Modifier
 
@@ -25,6 +26,10 @@ public class ModifyGraph extends javax.swing.JFrame {
     public ModifyGraph() {
         initComponents();
         
+        String[] userArray = TextFunctions.UserExist();
+        for (int i = 0; i < userArray.length; i++) {
+            UsernameComboBox.addItem(userArray[i]);
+        }
         
     }
 
@@ -56,7 +61,6 @@ public class ModifyGraph extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        UserNameComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@pepe", "@mazinger", "@juanc", "@xoxojaime", "@tuqui33", "@sancho23", "@terciopelo", "@caribedoble", "@africa", "@totalfree", "@radiogaga", "@cipriano", "@newageforever" }));
         UserNameComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserNameComboBox2ActionPerformed(evt);
@@ -80,7 +84,7 @@ public class ModifyGraph extends javax.swing.JFrame {
         jLabel2.setText("Nombre de usuario a agregar");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        NewUsernameTextField.setText("Nombre");
+        NewUsernameTextField.setText("Escribe el nombre");
         NewUsernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NewUsernameTextFieldActionPerformed(evt);
@@ -88,7 +92,6 @@ public class ModifyGraph extends javax.swing.JFrame {
         });
         jPanel1.add(NewUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, -1));
 
-        UsernameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "@pepe", "@mazinger", "@juanc", "@xoxojaime", "@tuqui33", "@sancho23", "@terciopelo", "@caribedoble", "@africa", "@totalfree", "@radiogaga", "@cipriano", "@newageforever" }));
         UsernameComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsernameComboBoxActionPerformed(evt);
@@ -154,12 +157,13 @@ public class ModifyGraph extends javax.swing.JFrame {
         String selection = (String)UsernameComboBox.getSelectedItem();
         Node user_to_delete = userGraph.getUser(selection);
         userGraph.delete(user_to_delete.getData());
+       
         
         //Se puede poner borrado con exito en un popup message
     }//GEN-LAST:event_DeleteUserBtnActionPerformed
 
     private void NewUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewUsernameTextFieldActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_NewUsernameTextFieldActionPerformed
 
     private void AddUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUserBtnActionPerformed
@@ -185,7 +189,7 @@ public class ModifyGraph extends javax.swing.JFrame {
     }//GEN-LAST:event_RelationTypeToggleBtnActionPerformed
 
     private void UserNameComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameComboBox2ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_UserNameComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -195,10 +199,6 @@ public class ModifyGraph extends javax.swing.JFrame {
         mm.setVisible(true);     
         mm.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void UsernameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameComboBoxActionPerformed
 
     private void AddRelationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddRelationBtnActionPerformed
         // TODO add your handling code here:
@@ -215,6 +215,11 @@ public class ModifyGraph extends javax.swing.JFrame {
         
         //Mensaje de Relacion agregada con exito!
     }//GEN-LAST:event_AddRelationBtnActionPerformed
+
+    private void UsernameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameComboBoxActionPerformed
+        
+        
+    }//GEN-LAST:event_UsernameComboBoxActionPerformed
 
     /**
      * @param args the command line arguments

@@ -49,6 +49,7 @@ public class GlobalVariables {
     public static void setTxtOutpoutString(String txtOutpoutString) {
         GlobalVariables.txtOutpoutString = txtOutpoutString;
     }
+
+    }
     
 
-}

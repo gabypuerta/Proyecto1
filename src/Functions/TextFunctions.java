@@ -95,5 +95,24 @@ public class TextFunctions {
         //Hacemos la relacion
         user1.getRelations().append(user2);
     }
-
+    
+    
+    public static String[] UserExist(){
+        LinkedList userList = GlobalVariables.getUserGraph();
+        
+        String users= "";
+  
+        Node pointer = userList.getHead();
+        while (pointer != null){
+            User temp = (User) pointer.getData();
+            //Agregamos el nombre de user
+            users = users+ ","+ temp.getUsername();
+            
+            //Agregamos Relaciones
+            pointer = pointer.getNext();
+        }
+        String[] output = users.split(",");
+        
+        return output;
+    }
 }
