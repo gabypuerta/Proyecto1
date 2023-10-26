@@ -15,6 +15,8 @@ public class GlobalVariables {
     private static String txtPath = "";
     private static String testPath = "";
     private static LinkedList userGraph = new LinkedList();
+    private static String txtOutpoutString = "";
+    
 
     public static String getTxtPath() {
         return txtPath;
@@ -39,5 +41,14 @@ public class GlobalVariables {
     public static void setTestPath(String testPath) {
         GlobalVariables.testPath = testPath;
     }
+
+    public static String getTxtOutpoutString() {
+        return txtOutpoutString;
+    }
+
+    public static void setTxtOutpoutString(String txtOutpoutString) {
+        GlobalVariables.txtOutpoutString = txtOutpoutString;
+    }
+    
 
 }

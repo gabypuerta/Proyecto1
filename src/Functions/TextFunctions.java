@@ -58,7 +58,7 @@ public class TextFunctions {
         }
     }
     
-    public static String createTxtFile(){
+    public static void createTxtFile(){
         LinkedList userList = GlobalVariables.getUserGraph();
         System.out.println("Entramos a la funcion creat txt file");
         String users = "usuarios";
@@ -81,8 +81,7 @@ public class TextFunctions {
             pointer = pointer.getNext();
         }
         String output = users + "\n" + relations;
-        System.out.println(output);
-        return output;
+        GlobalVariables.setTxtOutpoutString(output);
     }
 
     private static void searchAndRelate(String usuario1name, String usuario2name, LinkedList users) {

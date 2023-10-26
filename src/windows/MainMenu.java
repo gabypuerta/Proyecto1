@@ -46,6 +46,11 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         jButton2.setText("Mostrar Grafo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
         jButton3.setText("Mostar Txt");
@@ -87,11 +92,17 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         ShowTxtFile tf = new ShowTxtFile();
-//        this.dispose();
         this.setVisible(false);
         tf.setVisible(true);     
         tf.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ShowGraph gf = new ShowGraph();
+        this.setVisible(false);
+        gf.setVisible(true);     
+        gf.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

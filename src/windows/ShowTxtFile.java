@@ -8,6 +8,7 @@ package windows;
  *
  * @author Abraham Santana
  */
+import Functions.GlobalVariables;
 import Functions.TextFunctions;
 import javax.swing.JTextArea;
 public class ShowTxtFile extends javax.swing.JFrame {
@@ -109,8 +110,8 @@ public class ShowTxtFile extends javax.swing.JFrame {
 
     private void mostrartxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrartxtActionPerformed
         
-        String temptxt= TextFunctions.createTxtFile();
-        jTXTTextArea1.insert(temptxt, 0);
+        TextFunctions.createTxtFile();
+        jTXTTextArea1.insert(GlobalVariables.getTxtOutpoutString(), 0);
     }//GEN-LAST:event_mostrartxtActionPerformed
 
     /**
