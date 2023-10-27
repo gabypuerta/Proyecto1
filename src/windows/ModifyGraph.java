@@ -29,6 +29,7 @@ public class ModifyGraph extends javax.swing.JFrame {
         String[] userArray = TextFunctions.UserExist();
         for (int i = 0; i < userArray.length; i++) {
             UsernameComboBox.addItem(userArray[i]);
+            UserNameComboBox2.addItem(userArray[i]);
         }
         
     }
@@ -157,7 +158,9 @@ public class ModifyGraph extends javax.swing.JFrame {
         String selection = (String)UsernameComboBox.getSelectedItem();
         Node user_to_delete = userGraph.getUser(selection);
         userGraph.delete(user_to_delete.getData());
-       
+        UsernameComboBox.removeItem(selection);
+        UserNameComboBox2.removeItem(selection);
+        
         
         //Se puede poner borrado con exito en un popup message
     }//GEN-LAST:event_DeleteUserBtnActionPerformed
@@ -180,6 +183,10 @@ public class ModifyGraph extends javax.swing.JFrame {
             userIn.getRelations().append(newUser);
         }
         userGraph.append(newUser);
+        
+        String item = NewUsernameTextField.getText();
+        UsernameComboBox.addItem(item);
+        UserNameComboBox2.addItem(item);
         
         //Mensaje de Usuario agregado con exito al grafo
     }//GEN-LAST:event_AddUserBtnActionPerformed
