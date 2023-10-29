@@ -155,13 +155,26 @@ public class ModifyGraph extends javax.swing.JFrame {
 
     private void DeleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteUserBtnActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
         String selection = (String)UsernameComboBox.getSelectedItem();
         Node user_to_delete = userGraph.getUser(selection);
+        
+        Node pointer = userGraph.getHead();
+        while(pointer != null){
+            User pointerUser = (User) pointer.getData();
+            Node pointerR = pointerUser.getRelations().getHead();
+            while(pointerR != null){
+                if ((User) pointerR.getData() == (User) user_to_delete.getData()){
+                    pointerUser.getRelations().delete(user_to_delete);
+                    break;
+                }
+                pointerR = pointerR.getNext();
+            }
+            pointer = pointer.getNext();
+        }
         userGraph.delete(user_to_delete.getData());
         UsernameComboBox.removeItem(selection);
         UserNameComboBox2.removeItem(selection);
-        
-        
         
         //Se puede poner borrado con exito en un popup message
     }//GEN-LAST:event_DeleteUserBtnActionPerformed
