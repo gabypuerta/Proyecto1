@@ -84,7 +84,7 @@ public class TextFunctions {
         GlobalVariables.setTxtOutpoutString(output);
     }
 
-    private static void searchAndRelate(String usuario1name, String usuario2name, LinkedList users) {
+    public static void searchAndRelate(String usuario1name, String usuario2name, LinkedList users) {
         // Buscamos los nodos que contienen a los usuarios
         Node nodeuser1 = users.getUser(usuario1name);
         Node nodeuser2 = users.getUser(usuario2name);

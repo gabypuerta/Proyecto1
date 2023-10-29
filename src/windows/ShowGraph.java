@@ -5,6 +5,8 @@
 package windows;
 
 import Functions.GraphMaker;
+import Functions.KosarajuFunctions;
+import Functions.LinkedList;
 import org.graphstream.graph.Graph;
 
 /**
@@ -31,6 +33,7 @@ public class ShowGraph extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         showGraphBtn = new javax.swing.JButton();
+        showGraphBtn1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,7 +47,16 @@ public class ShowGraph extends javax.swing.JFrame {
                 showGraphBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(showGraphBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        jPanel1.add(showGraphBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+
+        showGraphBtn1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        showGraphBtn1.setText("Mostrar Kosaraju");
+        showGraphBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showGraphBtn1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(showGraphBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 340, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/sodapdf-converted.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 300));
@@ -70,6 +82,11 @@ public class ShowGraph extends javax.swing.JFrame {
         Graph graph = GraphMaker.createVisualGraph();
         graph.display();
     }//GEN-LAST:event_showGraphBtnActionPerformed
+
+    private void showGraphBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGraphBtn1ActionPerformed
+        LinkedList scc = KosarajuFunctions.findSCC();
+        System.out.println(scc);
+    }//GEN-LAST:event_showGraphBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,5 +127,6 @@ public class ShowGraph extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton showGraphBtn;
+    private javax.swing.JButton showGraphBtn1;
     // End of variables declaration//GEN-END:variables
 }

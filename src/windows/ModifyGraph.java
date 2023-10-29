@@ -162,6 +162,7 @@ public class ModifyGraph extends javax.swing.JFrame {
         UserNameComboBox2.removeItem(selection);
         
         
+        
         //Se puede poner borrado con exito en un popup message
     }//GEN-LAST:event_DeleteUserBtnActionPerformed
 
@@ -209,6 +210,9 @@ public class ModifyGraph extends javax.swing.JFrame {
 
     private void AddRelationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddRelationBtnActionPerformed
         // TODO add your handling code here:
+        
+        TextFunctions.searchAndRelate(NewUsernameTextField.getText(),(String)UserNameComboBox2.getSelectedItem(),userGraph);
+            
         if (!RelationTypeToggleBtn.isSelected()){
             String selection = (String) UserNameComboBox2.getSelectedItem();
             Node user_to_relate = userGraph.getUser(selection);
