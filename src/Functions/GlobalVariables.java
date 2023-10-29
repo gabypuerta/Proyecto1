@@ -16,6 +16,8 @@ public class GlobalVariables {
     private static String testPath = "";
     private static LinkedList userGraph = new LinkedList();
     private static String txtOutpoutString = "";
+    private static LinkedList transposedUserGraph = new LinkedList();
+    private static LinkedList sccGroupsList = new LinkedList();
     
 
     public static String getTxtPath() {
@@ -50,6 +52,21 @@ public class GlobalVariables {
         GlobalVariables.txtOutpoutString = txtOutpoutString;
     }
 
+    public static LinkedList getTransposedUserGraph() {
+        return transposedUserGraph;
     }
-    
 
+    public static void setTransposedUserGraph(LinkedList transposedUserGraph) {
+        GlobalVariables.transposedUserGraph = transposedUserGraph;
+    }
+
+    public static LinkedList getSccGroupsList() {
+        return sccGroupsList;
+    }
+
+    public static void setSccGroupsList(LinkedList sccGroupsList) {
+        GlobalVariables.sccGroupsList = sccGroupsList;
+    }
+
+
+    }

@@ -9,84 +9,89 @@ package Functions;
  * @author Abraham Santana
  */
 public class KosarajuFunctions {
+
+    private static LinkedList dfsStack;
+//Perform DFS traversal of the graph. Push node to stack before returning.
+
+//Find the transpose graph by reversing the edges.
+
+//Pop nodes one by one from the stack and again to DFS on the modified graph.
     
-    // dfs Function to reach destination
-	public static boolean dfs(Node current, Node destination, LinkedList visited) {
+    public KosarajuFunctions(){
+        this.dfsStack = new LinkedList();
+    }
 
-		// If curr node is destination return true
-		if (current == destination) {
-			return true;
-		}
-		visited.append(current);
-                User temp = (User) current.getData();
-                Node pointer = temp.getRelations().getHead();
-                while (pointer != null) {
-                     temp = (User) pointer.getData();
-                    if (visited.getUser(temp.getUsername()) == null){
-                        if (dfs(pointer.getNext(), destination, visited)) {
-					return true;
-				}
-                    }
+    public static void findSCC() {
+        System.out.println("Entramos a findSCC");
+        LinkedList users = GlobalVariables.getUserGraph();
+        LinkedList visited = new LinkedList();
+        dfsMakeStack(users.getHead(), visited);
+        System.out.println("Hicimos el stack");
+        LinkedList userStack = KosarajuFunctions.getDfsStack();
+        TextFunctions.getTransposedGraph();
+        LinkedList transposedGraph = GlobalVariables.getTransposedUserGraph();
+        LinkedList sccGroupsList = new LinkedList();
+        
+        Node stackPointer = userStack.getHead();
+        while(stackPointer != null){
+            User stackUser = (User) stackPointer.getData();
+            
+            Node graphPointer = transposedGraph.getHead();
+            while (graphPointer != null){
+                User transUser = (User) graphPointer.getData();
+                if (transUser.getUsername().equals(stackUser.getUsername())){
+                    LinkedList sccGroup = new LinkedList();
+                    dfsSCC(transUser, sccGroup);
+                    sccGroupsList.append(sccGroup);
+                }else{
+                    graphPointer = graphPointer.getNext();
                 }
-                return false;
-                
-	}
-
-	// To tell whether there is path from source to
-	// destination
-	public static boolean isPath(Node src, Node des) {
-		LinkedList visited = new LinkedList();
-		return dfs(src, des, visited);
-	}
-
-	// Function to return all the strongly connected
-	// component of a graph.
-
-	public static LinkedList findSCC() {
-                LinkedList users = GlobalVariables.getUserGraph();
-		// Stores all the strongly connected components.
-		LinkedList out = new LinkedList();
-
-		// Stores whether a vertex is a part of any Strongly
-		// Connected Component
-		LinkedList is_scc = new LinkedList();                
-                Node pointer = users.getHead();
-                while(pointer != null){
-                    User temp = (User) pointer.getData();
-                    
-
-				// If a vertex i is not a part of any SCC
-				// insert it into a new SCC list and check
-				// for other vertices whether they can be
-				// the part of this list.
-				LinkedList scc = new LinkedList();
-				scc.append(pointer);
-                                
-                                Node pointer2 = pointer;
-                                while (pointer2 != null){
-                                // If there is a path from vertex i to
-                                // vertex j and vice versa, put vertex j
-				// into the current SCC list.
-                                User temp2 = (User) pointer2.getData();
-                                    if (is_scc.getUser(temp2.getUsername()) != null
-                                        && isPath(pointer, pointer2) && isPath(pointer2, pointer)) {
-						is_scc.append(pointer2);
-						scc.append(pointer2);
-                                    }
-                                    pointer2 = pointer2.getNext();
-                                    
-				}
-                                
-                            Node pointer3 = scc.getHead();
-                            while (pointer3 != null) {
-                                out.append(pointer3);
-                                pointer3 = pointer3.getNext();
-                                }        
-                    
-                    pointer = pointer.getNext();
-                }
-                return out;
+            }
+            stackPointer = stackPointer.getNext();
         }
+        GlobalVariables.setSccGroupsList(sccGroupsList.cleanListOfLists());
+                
+    }
+
+    public static LinkedList getDfsStack() {
+        return dfsStack;
+    }
+
+    public static void setDfsStack(LinkedList dfsStack) {
+        KosarajuFunctions.dfsStack = dfsStack;
+    }
+    
+    
+    public static void dfsMakeStack(Node current, LinkedList visited){
+        User currentUser = (User) current.getData();
+        Node pointer = currentUser.getRelations().getHead();
+        
+        while (pointer != null){
+            if (!KosarajuFunctions.getDfsStack().isIn(pointer) && visited.isIn(pointer)){
+              visited.appendNode(pointer);
+              dfsMakeStack(pointer, visited);  
+            }
+            pointer.getNext();
+        }
+        KosarajuFunctions.getDfsStack().append(current);
+    }
+
+    private static void dfsSCC(User currentUser, LinkedList sccGroup) {
+        
+        Node pointer = currentUser.getRelations().getHead();
+        while (pointer != null){
+            User currentRelation = (User) pointer.getData();
+            dfsSCC(currentRelation,sccGroup);
+        }
+        sccGroup.append(currentUser);
+             
+        
+    
+    }
+
+
+    
 
 
 }
+

@@ -4,6 +4,7 @@
  */
 package windows;
 
+import Functions.GlobalVariables;
 import Functions.GraphMaker;
 import Functions.KosarajuFunctions;
 import Functions.LinkedList;
@@ -47,7 +48,7 @@ public class ShowGraph extends javax.swing.JFrame {
                 showGraphBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(showGraphBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+        jPanel1.add(showGraphBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         showGraphBtn1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         showGraphBtn1.setText("Mostrar Kosaraju");
@@ -84,8 +85,9 @@ public class ShowGraph extends javax.swing.JFrame {
     }//GEN-LAST:event_showGraphBtnActionPerformed
 
     private void showGraphBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGraphBtn1ActionPerformed
-        LinkedList scc = KosarajuFunctions.findSCC();
-        System.out.println(scc);
+        KosarajuFunctions KosarajuFunctions = new KosarajuFunctions();
+        KosarajuFunctions.findSCC();
+        System.out.println(GlobalVariables.getSccGroupsList());
     }//GEN-LAST:event_showGraphBtn1ActionPerformed
 
     /**

@@ -115,4 +115,46 @@ public class TextFunctions {
         
         return output;
     }
+     static void getTransposedGraph() {
+        String pathname = GlobalVariables.getTxtPath();
+        LinkedList users = new LinkedList();
+        try {
+            File inFile = new File(pathname);
+            Scanner reader = new Scanner(inFile);
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine();
+                if (data.equals("usuarios")){
+                    data = reader.nextLine();
+                    while (!data.equals("relaciones") ) { 
+                        String name = data;
+                        //Anadiendo usuarios al grafo
+                        User newUser = new User(name);
+                        users.append(newUser);
+                        data = reader.nextLine();
+                    }
+                    if(data.equals("relaciones")){
+                        //anadiendo relaciones
+                        while (reader.hasNextLine()) {
+                            //Aqui buscamos por numero, en el proyecto se busca por nombre
+                            data = reader.nextLine();
+                            //Aqui va la logica de guardar en los usuarios las relaciones
+                            String[] nodeInfo= data.split(", ");
+                            String usuario1name = nodeInfo[1];
+                            String usuario2name = nodeInfo[0];
+
+                            searchAndRelate(usuario1name, usuario2name, users);
+                                
+                        }
+                    }
+                }
+            }
+            reader.close();
+            GlobalVariables.setTransposedUserGraph(users);
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("No se pudo abrir el archivo");
+        }
+    }
 }
+        
+

@@ -128,4 +128,50 @@ public class LinkedList<T> {
         this.size++;
 
     }
+    
+    public boolean isIn(Node node){
+        Node pointer = this.getHead();
+        while (pointer != null){
+            if (pointer == node){
+                return true;
+            }
+            pointer = pointer.getNext();
+        }
+        return false;
+    }
+
+    public LinkedList cleanListOfLists() {
+        
+        LinkedList cleanListOfLists = new LinkedList();
+        
+        Node pointer = this.getHead();
+        while (pointer.getNext() != null){
+            LinkedList currentList = (LinkedList) pointer.getData();
+            LinkedList nextList = (LinkedList) pointer.getNext().getData();
+            
+            Node currentPointer = currentList.getHead();
+            
+            LinkedList newCurrentList = new LinkedList();
+            
+            while(currentPointer != null){
+                Boolean repeated = false;
+                Node nextPointer = nextList.getHead();
+                while (nextPointer != null){
+                    if (currentPointer == nextPointer){
+                        repeated = true;
+                    }
+                    nextPointer = nextPointer.getNext();
+                }
+                if (!repeated){
+                   newCurrentList.append(currentPointer); 
+                }
+                
+                currentPointer = currentPointer.getNext();
+            }
+            cleanListOfLists.append(newCurrentList);
+            pointer = pointer.getNext();
+        }
+        return cleanListOfLists;
+    
+    }
 }
